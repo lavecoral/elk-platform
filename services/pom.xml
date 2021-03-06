@@ -14,5 +14,6 @@
 
     <modules>
         <module>demo-service</module>
+        <module>demo-service-b</module>
     </modules>
 </project>
