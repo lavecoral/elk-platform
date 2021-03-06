@@ -13,6 +13,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>demo-server</module>
+        <module>demo-service</module>
     </modules>
 </project>

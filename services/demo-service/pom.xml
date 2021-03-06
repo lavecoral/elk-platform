@@ -8,7 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>demo-server</artifactId>
+    <artifactId>demo-service</artifactId>
 
     <dependencies>
         <dependency>
