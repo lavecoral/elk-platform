@@ -9,7 +9,8 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>eureka-server</artifactId>
+    <artifactId>platform-eureka-server</artifactId>
+    <name>Elk :: platform :: eureka server</name>
     <description>Demo project for Spring Boot</description>
 
     <dependencies>

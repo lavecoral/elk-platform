@@ -10,10 +10,11 @@
         <relativePath>..</relativePath>
     </parent>
     <artifactId>platform</artifactId>
+    <name>Elk :: platform</name>
     <packaging>pom</packaging>
     <description>平台服务</description>
     <modules>
-        <module>eureka-server</module>
-        <module>admin-server</module>
+        <module>platform-eureka-server</module>
+        <module>platform-admin-server</module>
     </modules>
 </project>

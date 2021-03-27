@@ -11,7 +11,7 @@
     <groupId>me.lavecoral.elk</groupId>
     <artifactId>elk-platform</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>elk-platform</name>
+    <name>Elk</name>
     <packaging>pom</packaging>
     <description>Demo project for Spring Boot</description>
 
