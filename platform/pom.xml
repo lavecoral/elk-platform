@@ -14,5 +14,6 @@
     <description>平台服务</description>
     <modules>
         <module>eureka-server</module>
+        <module>admin-server</module>
     </modules>
 </project>
