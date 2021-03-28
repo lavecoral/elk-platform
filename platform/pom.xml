@@ -15,5 +15,6 @@
     <description>平台服务</description>
     <modules>
         <module>platform-admin-server</module>
+        <module>platform-gateway-server</module>
     </modules>
 </project>
