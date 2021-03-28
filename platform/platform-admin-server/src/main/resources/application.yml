@@ -3,11 +3,14 @@ server:
 spring:
   application:
     name: admin-server
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:10001/eureka/
-
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        tags:
+          - service
 management:
   info:
     git:

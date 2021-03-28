@@ -14,7 +14,6 @@
     <packaging>pom</packaging>
     <description>平台服务</description>
     <modules>
-        <module>platform-eureka-server</module>
         <module>platform-admin-server</module>
     </modules>
 </project>
