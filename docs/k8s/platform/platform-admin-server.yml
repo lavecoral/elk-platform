@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: elk
+  name: platform-admin-server
+spec:
+  type: NodePort
+  ports:
+    - name: server            #---服务端口名，用于访问监控 UI
+      nodePort: 30081
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: platform-admin-server
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platform-admin-server
+  namespace: elk
+  labels:
+    name: platform-admin-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: platform-admin-server
+  template:
+    metadata:
+      labels:
+        app: platform-admin-server
+    spec:
+      serviceAccountName: springboot-admin-k8s
+      containers:
+        - name: platform-admin-server
+          image: elk/platform-admin-server:0.0.1-SNAPSHOT
+          args: []
+          ports:
+            - containerPort: 8080
+              name: server

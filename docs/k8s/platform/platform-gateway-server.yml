@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: elk
+  name: platform-gateway-server
+spec:
+  type: NodePort
+  ports:
+    - name: server            #---服务端口名，用于访问监控 UI
+      nodePort: 30082
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: platform-gateway-server
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platform-gateway-server
+  namespace: elk
+  labels:
+    name: platform-gateway-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: platform-gateway-server
+  template:
+    metadata:
+      labels:
+        app: platform-gateway-server
+    spec:
+      serviceAccountName: springboot-admin-k8s
+      containers:
+        - name: platform-gateway-server
+          image: elk/platform-gateway-server:0.0.1-SNAPSHOT
+          args: []
+          ports:
+            - containerPort: 8080
+              name: server

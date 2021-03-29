@@ -3,14 +3,6 @@ server:
 spring:
   application:
     name: demo-service-b
-  cloud:
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
-        tags:
-          - service
 management:
   info:
     git:

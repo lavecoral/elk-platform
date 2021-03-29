@@ -19,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 public class DemoServerBetaApplication {
     // 这里配置的是我们要调用的服务实例名，我们要调用USER服务，因此这里的地址是USER
-    private static final String REST_URL_PREFIX = "http://demo-server";
+    private static final String REST_URL_PREFIX = "http://demo-service";
 
 
     @Bean

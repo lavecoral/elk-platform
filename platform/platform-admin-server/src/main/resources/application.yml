@@ -1,16 +1,11 @@
-server:
-  port: 10011
 spring:
   application:
     name: admin-server
-  cloud:
-    consul:
-      host: localhost
-      port: 8500
+  boot:
+    admin:
       discovery:
-        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
-        tags:
-          - service
+        ignored-services:
+          - consul
 management:
   info:
     git:
