@@ -5,3 +5,7 @@ spring:
     kubernetes:
       discovery:
         enabled: true
+      reload:
+        enabled: true
+        period: 60s
+        strategy: refresh

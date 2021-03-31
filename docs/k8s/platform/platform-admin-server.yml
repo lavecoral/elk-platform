@@ -34,7 +34,10 @@ spec:
       containers:
         - name: platform-admin-server
           image: elk/platform-admin-server:0.0.1-SNAPSHOT
-          args: []
+          # args: ["--debug=true"]
           ports:
             - containerPort: 8080
               name: server
+          env:
+          - name: TZ
+            value: Asia/Shanghai
