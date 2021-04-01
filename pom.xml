@@ -44,6 +44,17 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>me.lavecoral.elk</groupId>
+                <artifactId>platform-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.lavecoral.elk</groupId>
+                <artifactId>platform-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

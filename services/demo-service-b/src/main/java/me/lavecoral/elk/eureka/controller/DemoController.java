@@ -1,6 +1,8 @@
 package me.lavecoral.elk.eureka.controller;
 
+import me.lavecoral.elk.common.exception.BusinessException;
 import me.lavecoral.elk.eureka.client.DemoClient;
+import me.lavecoral.elk.eureka.client.Dto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +21,13 @@ public class DemoController {
 
     @RequestMapping("/")
     public String home() {
-        return "This is beta. another response is " + demoClient.ok();
+        try {
+            Dto dto = demoClient.ok();
+            return "This is beta. another response is " + dto;
+        } catch (BusinessException e) {
+            System.out.println(e.getCode());
+            throw new BusinessException("adbcefg", "lanjie");
+        }
     }
 
     @GetMapping("/test")

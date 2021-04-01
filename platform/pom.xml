@@ -13,8 +13,24 @@
     <name>Elk :: platform</name>
     <packaging>pom</packaging>
     <description>平台服务</description>
+
     <modules>
+        <module>platform-common</module>
+        <module>platform-starter</module>
         <module>platform-admin-server</module>
         <module>platform-gateway-server</module>
+        <module>platform-auth-server</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>

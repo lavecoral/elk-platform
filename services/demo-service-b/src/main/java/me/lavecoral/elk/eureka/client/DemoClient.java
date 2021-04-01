@@ -13,5 +13,5 @@ public interface DemoClient {
      * 测试Open Feign的接口
      */
     @GetMapping("/")
-    String ok();
+    Dto ok();
 }

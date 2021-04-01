@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "elk.name",
+      "type": "java.lang.String",
+      "description": "ELK Name."
+    }
+  ]
+}
