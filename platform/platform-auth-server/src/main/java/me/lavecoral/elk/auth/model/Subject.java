@@ -1,21 +1,40 @@
 package me.lavecoral.elk.auth.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * @author lave
  * @date 2021/4/1 00:49
  */
+@Entity
 public class Subject implements Serializable {
     private static final long serialVersionUID = 524593301358344132L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String password;
     private Boolean enable;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    @ManyToMany
+    @JoinTable(
+            name="rel_subject_role",
+            joinColumns=@JoinColumn(name="subject_id", referencedColumnName="id"),
+            inverseJoinColumns= @JoinColumn(name="role_id", referencedColumnName="id")
+    )
+    private Set<Role> roles;
 
     public Long getId() {
         return id;
@@ -63,6 +82,14 @@ public class Subject implements Serializable {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     @Override

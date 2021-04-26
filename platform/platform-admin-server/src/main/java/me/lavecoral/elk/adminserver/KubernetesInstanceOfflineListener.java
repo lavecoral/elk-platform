@@ -29,17 +29,4 @@ public class KubernetesInstanceOfflineListener implements ApplicationListener<In
         log.info("instance {} offline", event.getInstance().getId());
         context.publishEvent(new InstanceRegisteredEvent<>(new Object(), null));
     }
-
-//    @Scheduled(fixedDelay = 30_000L)
-//    public void update() {
-//        try {
-//            log.info("start update instance");
-//            // 发布事件，促使Spring Boot Admin 更新缓存中的数据
-//            context.publishEvent(new InstanceRegisteredEvent<>(new Object(), null));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        } finally {
-//            log.info("end update instance");
-//        }
-//    }
 }

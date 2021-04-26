@@ -8,7 +8,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author lave
@@ -35,11 +34,7 @@ public class SubjectServiceImpl implements SubjectService {
         if (StringUtils.isBlank(name)) {
             throw new ObjectNotFoundException();
         }
-        Subject subject = subjectRepository.findByName(name);
-        if (Objects.isNull(subject)) {
-            throw new ObjectNotFoundException();
-        }
-        return subject;
+        return subjectRepository.findByName(name).orElseThrow(ObjectNotFoundException::new);
     }
 
     /**
