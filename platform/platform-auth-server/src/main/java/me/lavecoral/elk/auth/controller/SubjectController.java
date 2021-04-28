@@ -18,19 +18,12 @@ import java.util.List;
 public class SubjectController {
     private final SubjectService subjectService;
 
-    public SubjectController(
-            SubjectService subjectService
-    ) {
+    public SubjectController(SubjectService subjectService) {
         this.subjectService = subjectService;
     }
 
     @GetMapping("/{name}")
     public Subject findByName(@PathVariable(name = "name") String name) {
         return this.subjectService.findByName(name);
-    }
-
-    @GetMapping
-    public List<Subject> findAllCity() {
-        return this.subjectService.findAll();
     }
 }

@@ -2,12 +2,12 @@ package me.lavecoral.elk.auth.service.impl;
 
 import me.lavecoral.elk.auth.dto.PermissionDto;
 import me.lavecoral.elk.auth.dto.RoleDto;
-import me.lavecoral.elk.auth.exception.ObjectNotFoundException;
 import me.lavecoral.elk.auth.form.RoleForm;
 import me.lavecoral.elk.auth.model.Role;
 import me.lavecoral.elk.auth.repository.PermissionRepository;
 import me.lavecoral.elk.auth.repository.RoleRepository;
 import me.lavecoral.elk.auth.service.RoleService;
+import me.lavecoral.elk.common.exception.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

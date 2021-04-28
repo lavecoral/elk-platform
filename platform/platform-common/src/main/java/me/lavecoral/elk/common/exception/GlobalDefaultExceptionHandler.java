@@ -31,4 +31,11 @@ public class GlobalDefaultExceptionHandler {
         BusinessException businessException = new BusinessException("unknown.exception", "Unknown Exception");
         return Result.exception(businessException);
     }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(value = ObjectNotFoundException.class)
+    public Object notFoundExceptionHandler(ObjectNotFoundException e) {
+        BusinessException businessException = new BusinessException(e.getStatus().toString(), e.getMessage());
+        return Result.exception(businessException);
+    }
 }

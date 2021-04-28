@@ -1,6 +1,6 @@
 package me.lavecoral.elk.auth.service.impl;
 
-import me.lavecoral.elk.auth.exception.ObjectNotFoundException;
+import me.lavecoral.elk.common.exception.ObjectNotFoundException;
 import me.lavecoral.elk.auth.model.Subject;
 import me.lavecoral.elk.auth.repository.SubjectRepository;
 import me.lavecoral.elk.auth.service.SubjectService;
