@@ -1,21 +1,32 @@
 package me.lavecoral.elk.platform.gateway.filter;
 
+import me.lavecoral.elk.platform.gateway.ElkGatewayProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
+
+import java.time.Duration;
 
 /**
  * @author lave
  * @date 2021/4/23 22:06
  */
 @Component
-public class LogGlobalFilter implements GlobalFilter, Ordered {
-    private static final Logger LOG = LoggerFactory.getLogger(LogGlobalFilter.class);
+public class SlowRequestGlobalFilter implements GlobalFilter, Ordered {
+
+    private final ElkGatewayProperties elkGatewayProperties;
+    private static final Logger LOG = LoggerFactory.getLogger(SlowRequestGlobalFilter.class);
+
+    public SlowRequestGlobalFilter(ElkGatewayProperties elkGatewayProperties) {
+        this.elkGatewayProperties = elkGatewayProperties;
+    }
+
     /**
      * Process the Web request and (optionally) delegate to the next {@code WebFilter}
      * through the given {@link GatewayFilterChain}.
@@ -26,8 +37,25 @@ public class LogGlobalFilter implements GlobalFilter, Ordered {
      */
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        LOG.info("request : {} path: {}", exchange.getRequest().getId(), exchange.getRequest().getPath());
-        return chain.filter(exchange);
+        ServerHttpRequest request = exchange.getRequest();
+        LOG.info("request : {} path: {} query: {} header: {}",
+                request.getId(),
+                request.getPath(),
+                request.getQueryParams(),
+                request.getHeaders()
+        );
+        long startTime = System.nanoTime();
+        Mono<Void> result = chain.filter(exchange);
+        LOG.info("request: {} end", request.getId());
+        Duration duration = Duration.ofNanos(System.nanoTime() - startTime);
+        if (duration.compareTo(elkGatewayProperties.getSlowRequestTime()) > 0) {
+            LOG.warn("request: {} use time: {} method: {} path: {} ",
+                    request.getId(),
+                    duration,
+                    request.getMethodValue(),
+                    request.getPath());
+        }
+        return result;
     }
 
     /**
@@ -44,6 +72,6 @@ public class LogGlobalFilter implements GlobalFilter, Ordered {
      */
     @Override
     public int getOrder() {
-        return -1;
+        return Ordered.HIGHEST_PRECEDENCE;
     }
 }

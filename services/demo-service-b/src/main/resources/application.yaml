@@ -1,8 +1,6 @@
-server:
-  port: 11001
 spring:
   application:
-    name: demo-service-b
+    name: demo-b
 management:
   info:
     git:

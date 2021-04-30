@@ -9,3 +9,6 @@ spring:
         instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
         tags:
           - service
+elk:
+  gateway:
+    slow-request-time: 5ms

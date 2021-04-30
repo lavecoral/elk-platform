@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "elk.gateway.slowRequestTime",
+      "type": "java.time.Duration",
+      "description": "慢请求时间阈值.超过该阈值的请求将会被记录下使用时间."
+    }
+  ]
+}
