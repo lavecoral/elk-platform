@@ -55,6 +55,12 @@
                 <artifactId>platform-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>me.lavecoral.elk</groupId>
+                <artifactId>platform-auth-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

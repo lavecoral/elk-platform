@@ -19,7 +19,7 @@
         <module>platform-starter</module>
         <module>platform-admin-server</module>
         <module>platform-gateway-server</module>
-        <module>platform-auth-server</module>
+        <module>platform-auth</module>
     </modules>
 
     <dependencies>

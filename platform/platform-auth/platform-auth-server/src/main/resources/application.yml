@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: auth-server
+  profiles:
+    default: dev
+management:
+  info:
+    git:
+      mode: full
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+elk:
+  name: elk
