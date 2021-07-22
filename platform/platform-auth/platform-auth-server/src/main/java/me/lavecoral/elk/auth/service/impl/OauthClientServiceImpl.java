@@ -1,7 +1,7 @@
 package me.lavecoral.elk.auth.service.impl;
 
 import lombok.AllArgsConstructor;
-import me.lavecoral.elk.auth.model.OauthClient;
+import me.lavecoral.elk.auth.model.entity.OauthClient;
 import me.lavecoral.elk.auth.pojo.dto.OauthClientDto;
 import me.lavecoral.elk.auth.repository.OauthClientRepository;
 import me.lavecoral.elk.auth.service.OauthClientService;

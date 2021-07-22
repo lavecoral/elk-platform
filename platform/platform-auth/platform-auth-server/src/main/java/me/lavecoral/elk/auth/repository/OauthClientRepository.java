@@ -1,6 +1,6 @@
 package me.lavecoral.elk.auth.repository;
 
-import me.lavecoral.elk.auth.model.OauthClient;
+import me.lavecoral.elk.auth.model.entity.OauthClient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

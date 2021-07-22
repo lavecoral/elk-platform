@@ -1,4 +1,4 @@
-package me.lavecoral.elk.auth.model;
+package me.lavecoral.elk.auth.model.entity;
 
 import lombok.Data;
 
@@ -32,4 +32,9 @@ public class Subject implements Serializable {
      * 头像
      */
     private String avatar;
+
+    /**
+     * 主体是否可用
+     */
+    private Boolean enable;
 }

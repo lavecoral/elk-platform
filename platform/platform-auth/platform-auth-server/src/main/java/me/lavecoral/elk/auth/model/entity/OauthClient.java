@@ -1,4 +1,4 @@
-package me.lavecoral.elk.auth.model;
+package me.lavecoral.elk.auth.model.entity;
 
 import lombok.Data;
 
