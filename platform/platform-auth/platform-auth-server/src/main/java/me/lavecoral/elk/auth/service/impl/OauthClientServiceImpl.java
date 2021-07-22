@@ -1,5 +1,6 @@
 package me.lavecoral.elk.auth.service.impl;
 
+import lombok.AllArgsConstructor;
 import me.lavecoral.elk.auth.model.OauthClient;
 import me.lavecoral.elk.auth.pojo.dto.OauthClientDto;
 import me.lavecoral.elk.auth.repository.OauthClientRepository;
@@ -14,12 +15,9 @@ import java.util.Optional;
  * @date 2021/7/20 01:01
  */
 @Service
+@AllArgsConstructor
 public class OauthClientServiceImpl implements OauthClientService {
     private final OauthClientRepository oauthClientRepository;
-
-    public OauthClientServiceImpl(OauthClientRepository oauthClientRepository) {
-        this.oauthClientRepository = oauthClientRepository;
-    }
 
     @Override
     public OauthClientDto findByClientId(String clientId) {

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date 2021/7/20 00:46
  */
 @RequestMapping("/api/v1/oauth/client")
-@FeignClient(value = "application", contextId = "auth-application")
+@FeignClient(value = "oauth_client", contextId = "auth-application")
 public interface OauthClientApi {
 
     /**
